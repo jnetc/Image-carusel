@@ -130,46 +130,54 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin-right: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 10px rgba(black, .3);
   cursor: grab;
   object-fit: cover;
   font-size: 8rem;
-
-  // &:nth-of-type(1) {
-  //   background-color: #325252;
-  // }
-  // &:nth-of-type(2) {
-  //   background-color: #323d52;
-  // }
-  // &:nth-of-type(3) {
-  //   background-color: #3d3252;
-  // }
-  // &:nth-of-type(4) {
-  //   background-color: #4b5232;
-  // }
-  // &:nth-of-type(5) {
-  //   background-color: #4f3252;
-  // }
-
+  span {
+    width: 100px;
+    opacity: 0;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 23px;
+    transform: translateY(20px);
+    transition: all .3s ease-in-out;
+  }
+  &:hover {
+    span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
+
+
   // COLOR
+@mixin color($color) {
+  background-color: $color;
+  transition: all .3s ease-in-out;
+  &:hover {
+    background-color: darken($color, 10);
+  }
+}
 .clr1 {
-  background-color: #325252;
+  @include color(#325252);
   margin-left: 20px;
 }
 .clr2 {
-  background-color: #323d52;
+  @include color(#323d52);
 }
 .clr3 {
-  background-color: #3d3252;
+  @include color(#3d3252);
 }
 .clr4 {
-  background-color: #4b5232;
+  @include color(#4b5232);
 }
 .clr5 {
-  background-color: #4f3252;
+  @include color(#4f3252);
 }
 .slide-anim {
   transition: all .3s ease-in-out;
