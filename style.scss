@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(61, 61, 61);
+  display: flex;
+  justify-content: center;
+  color: rgb(197, 197, 197);
+  font-family: sans-serif;
+  text-decoration: none;
+  position: relative;
+}
+
+
+main {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: rgb(82, 82, 82);
+  @media screen and (max-width: 499px){
+    width: 100%;
+  }
+}
+#carusel {
+  width: 100%;
+  height: 400px;
+  border: 1px solid rgba(88, 88, 88, 0.3);
+  position: relative;
+  left: 0px;
+  .wrapper {
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+    position: relative;
+  }
+  .ctr-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    opacity: 1;
+    transition: all .3s ease-in-out;
+    transform: translateY(-50%);
+    background-color: darken(#5a1d61, 10);
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba( #000000, .3);
+    cursor: pointer;
+    pointer-events: all;
+    @media screen 
+      and (max-device-width: 500px)
+      and (orientation: portrait) {
+      display: none;
+    }
+    @media screen 
+      and (max-device-width: 1000px)
+      and (orientation: landscape) {
+      display: none;
+    }
+    &#next-btn {
+      right: -25px;
+      &::after {
+        content: '';
+        width: 20px;
+        height: 3px;
+        position: absolute;
+        top: 18px;
+        left: 16px;
+        background-color: #ffffff;
+        transform: rotate(45deg);
+      }
+      &::before { 
+        content: '';
+        width: 20px;
+        height: 3px;
+        position: absolute;
+        top: 30px;
+        left: 16px;
+        background-color: #ffffff;
+        transform: rotate(-45deg);
+      }
+    }
+    &#prev-btn {
+      left: -25px;
+      &::after {
+        content: '';
+        width: 20px;
+        height: 3px;
+        position: absolute;
+        top: 18px;
+        left: 14px;
+        background-color: #ffffff;
+        transform: rotate(-45deg);
+      }
+      &::before { 
+        content: '';
+        width: 20px;
+        height: 3px;
+        position: absolute;
+        top: 30px;
+        left: 14px;
+        background-color: #ffffff;
+        transform: rotate(45deg);
+      }
+    }
+    &.hide {
+      opacity: 0;
+      transition: all .3s ease-in-out;
+      pointer-events: none;
+      cursor: none;
+    }
+  }
+}
+  // ВНИМАНИЕ!!!!
+  // Ни в коем случае не вешать transition 
+  // На класс который нужно передвигать мышью!!!
+#collage {
+  height: 400px;
+  position: absolute;
+  left: 0px;
+  display: flex;
+}
+.slide {
+  width: 280px;
+  height: calc(100% - 20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(black, .3);
+  cursor: grab;
+  object-fit: cover;
+  font-size: 8rem;
+
+  // &:nth-of-type(1) {
+  //   background-color: #325252;
+  // }
+  // &:nth-of-type(2) {
+  //   background-color: #323d52;
+  // }
+  // &:nth-of-type(3) {
+  //   background-color: #3d3252;
+  // }
+  // &:nth-of-type(4) {
+  //   background-color: #4b5232;
+  // }
+  // &:nth-of-type(5) {
+  //   background-color: #4f3252;
+  // }
+
+}
+  // COLOR
+.clr1 {
+  background-color: #325252;
+  margin-left: 20px;
+}
+.clr2 {
+  background-color: #323d52;
+}
+.clr3 {
+  background-color: #3d3252;
+}
+.clr4 {
+  background-color: #4b5232;
+}
+.clr5 {
+  background-color: #4f3252;
+}
+.slide-anim {
+  transition: all .3s ease-in-out;
+}
+
+ // Модальное окна
+ .modal {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba( #000000, .8);
+  transition: all .3s ease-in-out;
+  z-index: 200;
+  .close-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    z-index: 202;
+    @media screen 
+      and (max-device-width: 1100px)
+      and (min-device-width: 320px)
+      and (orientation: landscape) {
+        background-color: rgba(#000, .5);
+    }
+    &::after {
+      content: '';
+      width: 30px;
+      height: 3px;
+      position: absolute;
+      top: 23px;
+      right: 10px;
+      background-color: #ffffff;
+      transform: rotate(45deg);
+      transition: all .3s ease-in-out;
+      @media screen 
+        and (max-device-width: 1100px)
+        and (min-device-width: 320px)
+        and (orientation: landscape) {
+          background-color: #ffffff;
+      }
+    }
+    &::before {
+      content: '';
+      width: 30px;
+      height: 3px;
+      position: absolute;
+      top: 23px;
+      right: 10px;
+      background-color: #ffffff;
+      transform: rotate(-45deg);
+      transition: all .3s ease-in-out;
+      @media screen 
+        and (max-device-width: 1100px)
+        and (min-device-width: 320px)
+        and (orientation: landscape) {
+          background-color: #ffffff;
+      }
+    }
+  }
+  figure {
+    width: 500px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8rem;
+    // background-color: rgb(50, 82, 82);
+    z-index: 201;
+    &:hover {
+      &~.close-btn {
+        &::after {
+          background-color: #aaaaaa;
+        }
+        &::before {
+          background-color: #aaaaaa;
+        }
+      }
+    }
+  }
+  // div {
+  //   width: 100%;
+
+  //   pointer-events: none;
+  //   user-select: none;
+  // }
+  &.show-modal {
+    opacity: 1;
+    transition: all .3s ease-in-out;
+  }
+}
