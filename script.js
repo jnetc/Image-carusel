@@ -268,13 +268,13 @@ function DOMloaded () {
       modal.classList.add('show-modal')
     }, 100)
 
-    modal.addEventListener('click', closeModal)
+    modal.addEventListener('click', closeModal.bind(null, color))
     // close.addEventListener('click', closeModal)
     // console.log(e.target.closest('body'));
-    function closeModal (e) {
-      console.log(e.target.className);
+    function closeModal (color, e) {
+      console.log(color, e.target.className);
       
-      if (e.target.className === '') {
+      if (e.target.className === color) {
         return
       }
       modal.classList.remove('show-modal')
