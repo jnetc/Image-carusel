@@ -93,15 +93,6 @@ function DOMloaded () {
       // Центр одной ячейки слайда
     const halfSlide = (slideWidth + marginRight)
 
-      // Ограничить, зона за пределы которой не выходит колаж
-    if (posInitial > 0 ) {
-      collage.style.left = 0 + 'px'
-      return
-    }
-    if (posInitial < posFinal) {
-      collage.style.left = posFinal + 'px'
-      return
-    }
     
       // Класс для контроллера 
     if (posInitial > -halfSlide ) {
