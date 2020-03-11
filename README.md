@@ -4,5 +4,5 @@ Draggable carousel with control arrows
 
 Double click for view full screen image
 
-[carusel link](https://jnetc.github.io/Image-carusel/)
+[carusel link](https://jnetc.github.io/image-carousel/)
 
