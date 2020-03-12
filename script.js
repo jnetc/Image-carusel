@@ -66,13 +66,11 @@ function DOMloaded () {
       posX1 = e.clientX
     }
 
-    // console.log(posInitial);
       // Собыитя документа при нажатии мыши
-    document.onmousemove =  moveAction
-    document.onmouseup =  endAction
+    document.onmousemove = moveAction
+    document.onmouseup = endAction
   }
-  
-  
+    
     // Фунция собития при перетаскивании карусели
   function moveAction (e) {
     if (e.type === 'touchmove') {
@@ -120,7 +118,7 @@ function DOMloaded () {
   }
   
     // Функия при отжатии мыши/пальца от карусели
-  function endAction () {
+  function endAction () {    
       // Добавляем transition
     animaSlide()
       // Начальная позиция
@@ -228,12 +226,10 @@ function DOMloaded () {
       }
     } else {
       modalWindow(e)
-      // console.log('double click');
     }
   }
   function modalWindow (e) {
-    console.log(e);
-    
+
     const body = e.target.closest('body')
     const main = e.target.closest('main')
       // Проверка на наличие ссылки на картинку
@@ -241,9 +237,7 @@ function DOMloaded () {
       return
     }
     const link = e.target.getAttribute('data-id')
-    const color = e.target.classList[1]
-    console.log(link, color);
-    
+    const color = e.target.classList[1]   
     
     // Создаем элементы
     const modal = document.createElement('div')
@@ -271,9 +265,7 @@ function DOMloaded () {
     modal.addEventListener('click', closeModal.bind(null, color))
     // close.addEventListener('click', closeModal)
     // console.log(e.target.closest('body'));
-    function closeModal (color, e) {
-      console.log(color, e.target.className);
-      
+    function closeModal (color, e) {      
       if (e.target.className === color) {
         return
       }
